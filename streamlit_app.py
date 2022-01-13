@@ -181,7 +181,7 @@ if canvas_result.image_data is not None:
 #     st.write('### Prediction') 
 #     st.write(str(output))
     st.write('### Certainty')    
-    st.write(str(certainty1[0].item()*100) +'%')
+    st.write(str(certainty1[0].item()*100) + 100 +'%')
     st.write('### Ordered candidates')
     st.write(str(output1))
     st.write('### Certainties')    
