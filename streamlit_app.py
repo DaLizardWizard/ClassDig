@@ -10,7 +10,7 @@ import torchvision
 st.write('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
 
-Network = torch.load('model.pth')
+Network = torch.load('shoop.pth')
 
 
 st.write('### Draw a digit in 0-9 in the box below')
