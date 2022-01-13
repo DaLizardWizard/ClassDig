@@ -151,30 +151,30 @@ if canvas_result.image_data is not None:
         certainty, output = torch.max(output0[0], 0)
         certainty = certainty.clone().cpu().item()
         output = output.clone().cpu().item()
-        certainty1, output1 = torch.topk(output0[0],3)
+        certainty1, output1 = torch.topk(output0[0],9)
         certainty1 = certainty1.clone().cpu()#.item()
         output1 = output1.clone().cpu()#.item()
 #     print(certainty)
     st.write('### Prediction') 
     st.write('### '+str(output))
 
-    st.write('## Breakdown of the prediction process:') 
+#     st.write('## Breakdown of the prediction process:') 
 
-    st.write('### Image being used as input')
-    st.image(canvas_result.image_data)
+#     st.write('### Image being used as input')
+#     st.image(canvas_result.image_data)
 
-    st.write('### Image as a grayscale Numpy array')
-    st.write(input_image_gs_np)
+#     st.write('### Image as a grayscale Numpy array')
+#     st.write(input_image_gs_np)
 
-    st.write('### Processing steps:')
-    st.write('1. Find the bounding box of the digit blob and use that.')
-    st.write('2. Convert it to size 22x22.')
-    st.write('3. Pad the image with 3 pixels on all the sides to get a 28x28 image.')
-    st.write('4. Normalize the image to have pixel values between 0 and 1.')
-    st.write('5. Standardize the image using the mean and standard deviation of the MNIST training dataset.')
+#     st.write('### Processing steps:')
+#     st.write('1. Find the bounding box of the digit blob and use that.')
+#     st.write('2. Convert it to size 22x22.')
+#     st.write('3. Pad the image with 3 pixels on all the sides to get a 28x28 image.')
+#     st.write('4. Normalize the image to have pixel values between 0 and 1.')
+#     st.write('5. Standardize the image using the mean and standard deviation of the MNIST training dataset.')
 
-    st.write('### Processed image')
-    st.image('processed_tensor.png')
+#     st.write('### Processed image')
+#     st.image('processed_tensor.png')
 
 
 
@@ -182,7 +182,7 @@ if canvas_result.image_data is not None:
     st.write(str(output))
     st.write('### Certainty')    
     st.write(str(certainty1[0].item()*100) +'%')
-    st.write('### Top 3 candidates')
+    st.write('### Top 9 candidates')
     st.write(str(output1))
     st.write('### Certainties')    
     st.write(str(certainty1*100))
