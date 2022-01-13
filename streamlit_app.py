@@ -7,6 +7,7 @@ import torch
 import torch.nn as nn
 import cv2
 import torchvision
+import torch.nn.functional as F
 
 class ConvClassifier(nn.Module):
     def __init__(self):
@@ -25,6 +26,8 @@ class ConvClassifier(nn.Module):
         x = F.dropout(x, training=self.training)
         x = self.fc2(x)
         return F.log_softmax(x)
+    
+
 
 st.write('# MNIST Digit Recognition')
 st.write('## Using a CNN `PyTorch` model')
