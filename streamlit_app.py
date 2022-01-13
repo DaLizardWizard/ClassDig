@@ -185,4 +185,4 @@ if canvas_result.image_data is not None:
     st.write('### Ordered candidates')
     st.write(str(output1))
     st.write('### Certainties')    
-    st.write(str(certainty1*100))
+    st.write(str((certainty1*100) + 100))
