@@ -151,7 +151,7 @@ if canvas_result.image_data is not None:
         certainty, output = torch.max(output0[0], 0)
         certainty = certainty.clone().cpu().item()
         output = output.clone().cpu().item()
-        certainty1, output1 = torch.topk(output0[0],9)
+        certainty1, output1 = torch.topk(output0[0],10)
         certainty1 = certainty1.clone().cpu()#.item()
         output1 = output1.clone().cpu()#.item()
 #     print(certainty)
@@ -178,11 +178,11 @@ if canvas_result.image_data is not None:
 
 
 
-    st.write('### Prediction') 
-    st.write(str(output))
+#     st.write('### Prediction') 
+#     st.write(str(output))
     st.write('### Certainty')    
     st.write(str(certainty1[0].item()*100) +'%')
-    st.write('### Top 9 candidates')
+    st.write('### Ordered candidates')
     st.write(str(output1))
     st.write('### Certainties')    
     st.write(str(certainty1*100))
